@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://c855a8cfp1bls"]
+
+[ext_resource type="Material" uid="uid://bx8l764sdy4y6" path="res://Materials/room.tres" id="1_owgdc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_owgdc"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_g86tw"]
+sky_material = SubResource("ProceduralSkyMaterial_owgdc")
+
+[sub_resource type="Environment" id="Environment_yiga8"]
+background_mode = 4
+sky = SubResource("Sky_g86tw")
+ambient_light_color = Color(0.487579, 0.56015, 1, 1)
+ambient_light_energy = 15.84
+reflected_light_source = 1
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_g86tw"]
+size = Vector3(20, 20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yiga8"]
+size = Vector3(20, 20, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yiga8")
+
+[node name="Room" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Room"]
+cast_shadow = 0
+mesh = SubResource("BoxMesh_g86tw")
+surface_material_override/0 = ExtResource("1_owgdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room"]
+shape = SubResource("BoxShape3D_yiga8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room"]
+transform = Transform3D(0.477154, 0.00169499, 0.149403, -1.08583e-17, 0.499968, -0.0056722, -0.149412, 0.00541303, 0.477123, -0.86502, 8.74231, 0.745158)
+layers = 15
+light_energy = 2.468
+light_size = 1.0
+light_specular = 7.548
+distance_fade_begin = 15.0
+omni_range = 56.305
+omni_attenuation = 1.058
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.654667, -0.206605, 0.727136, 0.0334142, 0.953075, 0.300886, -0.755179, 0.221277, -0.617042, 5.67024, 12.9953, -7.97003)
+near = 0.001
+far = 3953.45

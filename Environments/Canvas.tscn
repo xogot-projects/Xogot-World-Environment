@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cva1pp3yaxirq"]
+
+[ext_resource type="Texture2D" uid="uid://ndpf6rr8knbx" path="res://Images/Background.PNG" id="1_37vif"]
+[ext_resource type="PackedScene" uid="uid://cohb8et7ekgcb" path="res://Assets/platform.tscn" id="2_135h1"]
+
+[node name="Node2D" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_37vif")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.156228, 0, 0.987721, 0, 1, 0, -0.987721, 0, 0.156228, 7.56417, 3.70253, -0.186602)
+
+[node name="Platform" parent="." instance=ExtResource("2_135h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.66021, -8.6077)
+
+[node name="Platform2" parent="." instance=ExtResource("2_135h1")]
+
+[node name="Platform3" parent="." instance=ExtResource("2_135h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0144, -3.77927)
+
+[node name="Platform4" parent="." instance=ExtResource("2_135h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6872, 4.13662)
